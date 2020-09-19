@@ -11,8 +11,11 @@ def countandwrite(f1, f2):
                 else : 
                     worddict[word] = 1
         outfile = open(f2, 'w')
-        wdlst = list(worddict.items()).sort()
-        for kv in list(worddict.items()) : 
+        wdlst = list(worddict.items())
+        wdlst.sort()
+        #print(worddict.items()
+        #print(wdlst)
+        for kv in wdlst : 
             for dt in kv : 
                 outfile.write(str(dt)+' ')
             outfile.write('\n')
