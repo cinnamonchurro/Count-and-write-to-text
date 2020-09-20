@@ -22,10 +22,11 @@ def countandwrite(f1, f2 = None):
                     #print('char', char)
 
                     #remove punctuations
-                    if char in """!()-[]{};:'"\,<>./?@#$%^&*_~ """ : 
-                        pass
-                        print (char)
-                    else :     
+                    #if char in """!()-[]{};:'"\,<>./?@#$%^&*_~ """ : 
+                        #pass
+                        #print (char)
+                    #else :     
+                    if char not in """!()-[]{};:'"\,<>./?@#$%^&*_~ """ :
                         rempunc = rempunc + char
                 #print('rempunc', rempunc)
                 rempunc = rempunc.lower()
