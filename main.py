@@ -26,7 +26,7 @@ def countandwrite(f1, f2 = None):
                         #pass
                         #print (char)
                     #else :     
-                    if char not in """!()-[]{};:'"\,<>./?@#$%^&*_~ """ :
+                    if char not in """!()-—[]{};:'"“”\,<>./?@#$%^&*_~ """ :
                         rempunc = rempunc + char
                 #print('rempunc', rempunc)
                 rempunc = rempunc.lower()
@@ -49,9 +49,49 @@ def countandwrite(f1, f2 = None):
         outfile.close()
 
     return(worddict)
+
+def findlongest(f1):
+    maxlength = 0
+    longestword = ''
+    #open text file f1 for reading
+    with open(f1) as text : 
+        #read the whole of text file and store in aline
+        aline = text.readlines()
+
+        
+        #going through line by line
+        for data in aline :
+            #print('aline', aline)
+            words = data.split()
+            for word in words : 
+                #print('words', words)
+                rempunc = ''
+                for char in word :
+                    #print('char', char)
+
+                    #remove punctuations
+                    #if char in """!()-[]{};:'"\,<>./?@#$%^&*_~ """ : 
+                        #pass
+                        #print (char)
+                    #else :     
+                    if char not in """!()—-[]{};:'"“”\,<>./?@#$%^&*_~ """ :
+                        rempunc = rempunc + char
+                #print('rempunc', rempunc)
+                rempunc = rempunc.lower()
+                #create key or add value to key
+                if len(rempunc) > maxlength :
+                    maxlength = len(rempunc)
+                    longestword = rempunc
+                else : 
+                    pass
+    return((longestword,len(longestword)))        
+
+        
+
+    return(worddict)    
                 #print(word)
             #print(data)
-            #print(words)
+print(findlongest("alice.txt"))            #print(words)
 #countandwrite('example.txt','out.txt')
-countandwrite('alice.txt', 'outfile.txt')
+#countandwrite('alice.txt', 'outfile.txt')
 #print(countandwrite('alice.txt','out.txt'))
